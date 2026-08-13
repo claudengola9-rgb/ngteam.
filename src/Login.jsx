@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import { base44 } from "@/base64";
+import { base64 } from "@/base64";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,7 +19,7 @@ export default function Login() {
         setError("");
         setLoading(true);
         try {
-            await base44.auth.login(email, password);
+            await base64.auth.login(email, password);
         } catch (err) {
             setError(err.message);
         } finally {
@@ -28,7 +28,7 @@ export default function Login() {
     };
 
     const handleGoogle = () => {
-        base44.auth.loginWithProvider("google");
+        base64.auth.loginWithProvider("google");
     };
 
     return (
